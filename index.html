@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Slamet & Neneng</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --primary: #8B4513; --secondary: #D4A017; --dark: #2C1A0D; --light: #FDF5E6;
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--light); color: var(--dark); margin: 0; overflow-x: hidden; }
+        
+        /* COVER STYLING */
+        #cover {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: #000; z-index: 1000; transition: transform 1.5s ease-in-out;
+            display: flex; justify-content: center; align-items: center;
+        }
+        #cover.hide { transform: translateY(-100%); }
+
+        .envelope-text {
+            position: absolute; top: 20%; text-align: center; color: white; width: 100%;
+        }
+
+        /* MAIN CONTENT */
+        main { display: none; padding-top: 50px; }
+        section { padding: 80px 20px; text-align: center; max-width: 800px; margin: auto; }
+        .mempelai-card { margin: 20px 0; border: 2px solid var(--secondary); padding: 20px; border-radius: 20px; }
+        .btn-open {
+            padding: 12px 30px; background: var(--secondary); color: white;
+            border: none; border-radius: 25px; cursor: pointer; font-weight: 600;
+            margin-top: 20px; z-index: 1001; position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-relaxing.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="cover">
+        <div class="night"></div>
+        
+        <div class="envelope-text">
+            <p style="letter-spacing: 3px;">UNDANGAN PERNIKAHAN</p>
+            <h1 style="font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--secondary);">Slamet & Neneng</h1>
+        </div>
+
+        <div class="wrapper">
+            <div class="lid one"></div>
+            <div class="lid two"></div>
+            <div class="envelope"></div>
+            <div class="letter">
+                <p>Klik tombol untuk membuka pesan cinta kami ❤️</p>
+            </div>
+        </div>
+
+        <div class="buttons" style="position: absolute; bottom: 15%;">
+            <button id="openBtn" class="btn-open">Buka Undangan</button>
+        </div>
+
+        <div class="flowers" id="flowerContainer" style="display: none; opacity: 0.6;">
+            <div class="flower flower--1"><div class="flower__line"></div></div>
+            <div class="flower flower--2"><div class="flower__line"></div></div>
+            <div class="flower flower--3"><div class="flower__line"></div></div>
+        </div>
+    </div>
+
+    <main id="mainContent">
+        <section>
+            <h2 style="font-family: 'Great Vibes'; font-size: 3rem;">Mempelai</h2>
+            <div class="mempelai-card">
+                <h3>Slamet Rahardjo, S.T.</h3>
+                <p>Putra dari Bpk. Bambang & Ibu Siti</p>
+            </div>
+            <h1 style="font-family: 'Great Vibes';">&</h1>
+            <div class="mempelai-card">
+                <h3>Neneng Khairunisa, M.Ak.</h3>
+                <p>Putri dari Bpk. H. Somad & Ibu Hj. Rohaye</p>
+            </div>
+        </section>
+
+        <section style="background: var(--primary); color: white;">
+            <h2>Waktu & Lokasi</h2>
+            <p>Senin, 17 Agustus 2026</p>
+            <p><b>Masjid At-Tin TMII</b></p>
+            <p>Jakarta Timur</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

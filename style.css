@@ -1,0 +1,158 @@
+/* --- DASAR & WARNA BARU --- */
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-wedding: #FDF5E6; /* Warna Krem (Old Lace) */
+    --primary: #8B4513;    /* Cokelat Bata */
+    --secondary: #D4A017;  /* Emas */
+    --accent: #A52A2A;     /* Merah Bata */
+}
+
+body {
+    background-color: var(--bg-wedding);
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- COVER DEPAN (PENGGANTI HITAM) --- */
+#cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Ganti background hitam dengan pattern batik halus */
+    background-color: var(--bg-wedding);
+    background-image: url('https://www.transparenttextures.com/patterns/batik-floral.png');
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1.5s ease-in-out;
+}
+
+/* Overlay transparan agar bunga tetap terlihat cantik */
+.night {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(253, 245, 230, 0.2), rgba(212, 160, 23, 0.1));
+    pointer-events: none;
+}
+
+/* --- STYLING AMPLOP & SURAT --- */
+.wrapper {
+    position: relative;
+    z-index: 1002;
+    transform: scale(0.9);
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: var(--accent); /* Merah Marun */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.lid {
+    position: absolute;
+    width: 0; height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    transition: transform 0.8s;
+}
+
+.lid.one {
+    border-top: 100px solid #8B2525;
+    transform-origin: top;
+    z-index: 3;
+}
+
+.wrapper.open .lid.one {
+    transform: rotateX(180deg);
+}
+
+.letter {
+    position: absolute;
+    top: 10px; left: 10px;
+    width: 280px; height: 180px;
+    background: white;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+    transition: 0.5s;
+    border: 1px solid var(--secondary);
+}
+
+.wrapper.open .letter {
+    transform: translateY(-100px);
+    z-index: 4;
+}
+
+/* --- TOMBOL BUKA --- */
+.buttons {
+    margin-top: 50px;
+    z-index: 1005;
+}
+
+.btn-open {
+    padding: 15px 40px;
+    background: var(--primary);
+    color: white;
+    border: 2px solid var(--secondary);
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.btn-open:hover {
+    background: var(--secondary);
+    transform: scale(1.05);
+}
+
+/* --- BUNGA (Tetap Menggunakan Keyframes Kamu) --- */
+.flowers {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    display: none; /* Muncul lewat script.js */
+}
+
+/* --- KONTEN UNDANGAN SETELAH DIBUKA --- */
+main {
+    display: none; /* Muncul setelah cover naik */
+    background: var(--bg-wedding);
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.mempelai-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    border-top: 5px solid var(--secondary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin: 20px 0;
+}
+
+/* TEMPELKAN SEMUA KEYFRAMES BUNGA KAMU DI SINI (grow-flower, blooming, dll) */
